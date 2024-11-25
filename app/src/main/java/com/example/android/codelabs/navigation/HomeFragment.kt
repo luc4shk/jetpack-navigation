@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 
@@ -39,14 +40,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //TODO STEP 5 - Set an OnClickListener, using Navigation.createNavigateOnClickListener()
-
-        //val button = view.findViewById<Button>(R.id.navigate_destination_button)
-        //button?.setOnClickListener {
-        //           findNavController().navigate(R.id.flow_step_one_dest, null)
-        //}
-        //TODO END STEP 5
-
         //TODO STEP 6 - Set NavOptions
         val options = navOptions {
             anim {
@@ -58,17 +51,14 @@ class HomeFragment : Fragment() {
         }
         val button = view.findViewById<Button>(R.id.navigate_destination_button)
         button?.setOnClickListener {
-                   findNavController().navigate(R.id.flow_step_one_dest, null,options)
+                   findNavController().navigate(R.id.flow_step_one_dest, null, options)
                }
-        //view.findViewById<Button>(R.id.navigate_destination_button)?.setOnClickListener {
-        //    findNavController().navigate(R.id.flow_step_one_dest, null, options)
-        //}
         //TODO END STEP 6
 
         //TODO STEP 7.2 - Update the OnClickListener to navigate using an action
-//        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
-//                Navigation.createNavigateOnClickListener(R.id.next_action, null)
-//        )
+        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
+                Navigation.createNavigateOnClickListener(R.id.next_action, null)
+        )
         //TODO END STEP 7.2
     }
 
